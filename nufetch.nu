@@ -4340,7 +4340,11 @@ def calculate_packages [] {
   }
 }
 
-def main [ --fake: string ] {
+def main [ --fake: string -l ] {
+  if ($l) {
+    return $arts
+  }
+
   let art = get_art --fake $fake
 
   let hostinfo = sys host
